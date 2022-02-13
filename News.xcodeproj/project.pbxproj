@@ -31,6 +31,7 @@
 		BC3F281827B90F0A00FDA59B /* RetryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F281727B90F0A00FDA59B /* RetryView.swift */; };
 		BC3F281A27B90FEC00FDA59B /* SearchHistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F281927B90FEC00FDA59B /* SearchHistoryListView.swift */; };
 		BC3F281C27B9100A00FDA59B /* SearchTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F281B27B9100A00FDA59B /* SearchTabView.swift */; };
+		BC3F281E27B934FF00FDA59B /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F281D27B934FF00FDA59B /* ArticleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		BC3F281727B90F0A00FDA59B /* RetryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryView.swift; sourceTree = "<group>"; };
 		BC3F281927B90FEC00FDA59B /* SearchHistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryListView.swift; sourceTree = "<group>"; };
 		BC3F281B27B9100A00FDA59B /* SearchTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabView.swift; sourceTree = "<group>"; };
+		BC3F281D27B934FF00FDA59B /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				BC3F281727B90F0A00FDA59B /* RetryView.swift */,
 				BC3F281927B90FEC00FDA59B /* SearchHistoryListView.swift */,
 				BC3F281B27B9100A00FDA59B /* SearchTabView.swift */,
+				BC3F281D27B934FF00FDA59B /* ArticleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				BC3F281827B90F0A00FDA59B /* RetryView.swift in Sources */,
 				BC3F281A27B90FEC00FDA59B /* SearchHistoryListView.swift in Sources */,
 				BC3F27CA27B8F9DA00FDA59B /* NewsApp.swift in Sources */,
+				BC3F281E27B934FF00FDA59B /* ArticleView.swift in Sources */,
 				BC3F27FE27B9061900FDA59B /* Category.swift in Sources */,
 				BC3F280F27B90BE900FDA59B /* ArticleRowView.swift in Sources */,
 				BC3F280227B9072B00FDA59B /* NewsAPI.swift in Sources */,

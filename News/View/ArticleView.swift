@@ -8,13 +8,57 @@
 import SwiftUI
 
 struct ArticleView: View {
+    let article: Article
+    @Environment(\.presentationMode) var presentationModes
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct ArticleView_Previews: PreviewProvider {
-    static var previews: some View {
-        ArticleView()
+        Button("Back") {
+            self.presentationModes.wrappedValue.dismiss()
+        }.padding()
+        VStack(alignment: .leading, spacing: 20) {
+            AsyncImage(url: article.imageURL) { phase in
+                switch phase {
+                case .empty:
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
+                    
+                case .success(let image):
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                    
+                case .failure:
+                    HStack {
+                        Spacer()
+                        Image(systemName: "photo")
+                            .imageScale(.large)
+                        Spacer()
+                    }
+                    
+                    
+                @unknown default:
+                    fatalError()
+                }
+            }
+            .frame(minHeight: 200, maxHeight: 300)
+            .background(Color.gray.opacity(0.3))
+            .clipped()
+            
+            Text(article.title)
+                .font(.headline)
+                .offset(x: 40)
+                .padding()
+            
+            Divider()
+            
+            Text(article.content ?? "Does not have content.")
+                .offset(x: 40)
+                .padding()
+            
+            Spacer()
+        }
     }
 }

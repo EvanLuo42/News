@@ -26,7 +26,6 @@ struct NewsAPI {
     
     private func fetchArticles(from url: URL) async throws -> [Article] {
         let (data, response) = try await session.data(from: url)
-        print(response)
                 
         guard let response = response as? HTTPURLResponse else {
             throw generateError(description: "Bad Response")

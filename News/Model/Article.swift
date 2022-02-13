@@ -19,6 +19,7 @@ struct Article {
     let pubDate: String
     let source_id: String
     let link: String
+    let content: String?
     
     enum CodingKeys: String, CodingKey {
         case title
@@ -28,6 +29,7 @@ struct Article {
         case image_url
         case source_id
         case link
+        case content
     }
     
     var authorText: String {
