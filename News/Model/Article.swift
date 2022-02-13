@@ -13,7 +13,7 @@ struct Article {
     let id = UUID()
     
     let title: String
-    let creator: String?
+    let creator: [String]?
     let image_url: String?
     let description: String?
     let pubDate: String
@@ -31,7 +31,7 @@ struct Article {
     }
     
     var authorText: String {
-        creator ?? ""
+        creator?.first ?? ""
     }
         
     var descriptionText: String {
