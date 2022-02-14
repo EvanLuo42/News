@@ -52,7 +52,7 @@ struct NewsTabView: View {
     @Sendable
     private func refreshTask() {
         DispatchQueue.main.async {
-            articleNewsVM.fetchTaskToken = FetchTaskToken(category: articleNewsVM.fetchTaskToken.category, token: Date())
+            articleNewsVM.fetchTaskToken = FetchTaskToken(category: articleNewsVM.fetchTaskToken.category, token: Date(), page: self.articleNewsVM.fetchTaskToken.page + 1)
         }
     }
     

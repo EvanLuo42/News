@@ -12,18 +12,18 @@ import SwiftUI
 struct ArticleListView: View {
     
     let articles: [Article]
-    @State var isPresented = false
+    @State var selectedArticle: Article?
     
     var body: some View {
         List {
             ForEach(articles) { article in
                 ArticleRowView(article: article)
                     .onTapGesture {
-                        self.isPresented = true
+                        self.selectedArticle = article
                     }
-                    .fullScreenCover(isPresented: $isPresented, content: {
-                        ArticleView(article: article)
-                    })
+                    .fullScreenCover(item: $selectedArticle) { item in
+                        ArticleView(article: item)
+                    }
             }
             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
             .listRowSeparator(.hidden)

@@ -16,12 +16,12 @@ struct NewsAPI {
     private let session = URLSession.shared
     private let jsonDecoder = JSONDecoder()
     
-    func fetch(from category: Category) async throws -> [Article] {
-        try await fetchArticles(from: generateNewsURL(from: category))
+    func fetch(from category: Category, page: Int) async throws -> [Article] {
+        try await fetchArticles(from: generateNewsURL(from: category, page: page))
     }
     
-    func search(for query: String) async throws -> [Article] {
-        try await fetchArticles(from: generateSearchURL(from: query))
+    func search(for query: String, page: Int = 1) async throws -> [Article] {
+        try await fetchArticles(from: generateSearchURL(from: query, page: page))
     }
     
     private func fetchArticles(from url: URL) async throws -> [Article] {
@@ -49,20 +49,22 @@ struct NewsAPI {
         NSError(domain: "NewsAPI", code: code, userInfo: [NSLocalizedDescriptionKey: description])
     }
     
-    private func generateSearchURL(from query: String) -> URL {
+    private func generateSearchURL(from query: String, page: Int) -> URL {
         let percentEncodedString = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? query
         var url = "https://newsdata.io/api/1/news?"
         url += "apiKey=\(apiKey)"
         url += "&language=en"
         url += "&q=\(percentEncodedString)"
+        url += "&page=\(page)"
         return URL(string: url)!
     }
     
-    private func generateNewsURL(from category: Category) -> URL {
+    private func generateNewsURL(from category: Category, page: Int) -> URL {
         var url = "https://newsdata.io/api/1/news?"
         url += "apiKey=\(apiKey)"
         url += "&language=en"
         url += "&category=\(category.rawValue)"
+        url += "&page=\(page)"
         return URL(string: url)!
     }
 }
